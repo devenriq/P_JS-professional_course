@@ -1,0 +1,24 @@
+{
+  "name": "17-js-professional",
+  "version": "1.0.0",
+  "description": "Proyecto del Curso Profesional de JS de Platzi",
+  "main": "index.js",
+  "scripts": {
+    "start": "live-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/octenrique/Platzi_JS-professional_course.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/octenrique/Platzi_JS-professional_course/issues"
+  },
+  "homepage": "https://github.com/octenrique/Platzi_JS-professional_course#readme",
+  "devDependencies": {
+    "live-server": "^1.1.0"
+  }
+}
