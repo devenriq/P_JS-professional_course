@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Herencia prototipal</title>
+  </head>
+  <body>
+    <ul>
+      <li><button class="all-buttons"></button></li>
+      <li><button class="all-buttons"></button></li>
+      <li><button class="all-buttons"></button></li>
+      <li><button class="all-buttons"></button></li>
+      <li><button class="all-buttons"></button></li>
+    </ul>
+
+    <script>
+      function Hero(name) {
+        this.name = name;
+      }
+
+      Hero.prototype.saludar = function () {
+        console.log(`Soy la heroína ${this.name}`);
+      };
+
+      const zelda = new Hero("Zelda");
+    </script>
+  </body>
+</html>
