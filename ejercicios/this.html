@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>This</title>
+  </head>
+  <body>
+    <script>
+      // this en el global scope
+      console.log(`En global, this es igual a: ${this}`);
+      // this en una función
+      function test() {
+        return this;
+      }
+      console.log(`En la función, this es igual a: ${test()}`);
+
+      // this en strict mode
+      function testStrict() {
+        "use strict";
+        return this;
+      }
+      console.log(
+        `En una función con strict mode, this es igual a: ${testStrict()}`
+      );
+
+      // this en el contexto de un objeto
+      const person = {
+        name: "Enrique",
+        saludar: function () {
+          console.log(`Hola, soy ${this.name}`);
+        },
+      };
+      person.saludar();
+
+      // this en contexto de clase
+      class Person {
+        constructor(name) {
+          this.name = name;
+        }
+      }
+
+      Person.prototype.saludar = function () {
+        console.log(`Hola, soy ${this.name}`);
+      };
+
+      const diana = new Person("Diana");
+      diana.saludar();
+    </script>
+  </body>
+</html>
