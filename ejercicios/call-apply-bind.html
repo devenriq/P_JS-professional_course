@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Implementando call, apply y bind en .this</title>
+  </head>
+  <body>
+    <ul>
+      <li><button class="call-to-action">Aprender</button></li>
+      <li><button class="call-to-action">Aprender más</button></li>
+      <li><button class="call-to-action">Nunca parar de aprender</button></li>
+    </ul>
+
+    <script>
+      //usando call. El primer argumento de este método es el this. Es un objeto del cual obtendrá los valores .this
+      function saludar() {
+        console.log(`Hola. Soy ${this.name} ${this.apellido}`);
+      }
+
+      const enrique = {
+        name: "Enrique",
+        apellido: "Palomino",
+      };
+
+      saludar.call(enrique);
+
+      function caminar(metros, direccion) {
+        console.log(
+          `${this.name} ${this.apellido} camina ${metros} metros hacia la dirección ${direccion}`
+        );
+      }
+
+      caminar.call(enrique, 400, "oeste");
+
+      //estableciendo this usando apply y pasando argumentos a la función. Los argumentos que recibe están empaquetados dentro de un array
+      const valores = [123, "sur"];
+      caminar.apply(enrique, valores);
+
+      //estableciendo this usando bind. En este caso, bind creará una nueva función
+      const diana = {
+        name: "Diana",
+        lastName: "Palomares",
+      };
+      const dianaSaluda = saludar.bind(diana);
+      dianaSaluda();
+
+      const dianaCamina = caminar.bind(diana, 1300, "este");
+      dianaCamina();
+
+      // Utilización del bind
+
+      const botones = document.getElementsByClassName("call-to-action");
+
+      Array.prototype.forEach.call(botones, (button) => {
+        button.onclick = () => {
+          alert("Nunca parar de aprender");
+        };
+      });
+    </script>
+  </body>
+</html>
